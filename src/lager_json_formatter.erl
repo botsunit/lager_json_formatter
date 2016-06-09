@@ -14,8 +14,9 @@ format(Message, _Config) ->
 
 output(message, Msg) -> 
   re:replace(
-    re:replace(lager_msg:message(Msg) ,"\"", "\\\\\"", [global, {return,list}]),
-    "\\\\\"", "\\\"", [global, {return,list}]);
+    re:replace(lager_msg:message(Msg),
+               "\\\\\"", "\\\"", [global, {return,list}]),
+    "\"", "\\\\\"", [global, {return,list}]);
 output(date, Msg) ->
   {D, _T} = lager_msg:datetime(Msg),
   D;

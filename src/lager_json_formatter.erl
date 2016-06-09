@@ -8,7 +8,7 @@
 format(Message, _Config) ->
   [output(V, Message) || V <- ["{\"date\": \"", date, " ", time ,"\",",
                                "\"severity\": \"", severity ,"\",",
-                               "\"pid\": ", {pid, "-"}, "\",",
+                               "\"pid\": \"", {pid, "-"}, "\",",
                                "\"component\": \"", {module, "-"}, ":", {function, "-"}, "/", {line, "-"}, "\",",
                                "\"message\": \"", message, "\"}\n"]].
 

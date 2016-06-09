@@ -29,9 +29,9 @@ config.exs :
 config :lager,
   handlers: [
     lager_console_backend: [:info, {:lager_default_formatter, [:date, ' ', :time, ' [', :severity, '] -- ', :module, ':', :function, ' (', :pid, '/', :line, ') -- ', :message, '\n']}],
-    lager_file_backend: [file: 'log/wok_error.log', level: :error, formatter: lager_json_formatter],
-    lager_file_backend: [file: 'log/wok_debug.log', level: :debug, formatter: lager_json_formatter],
-    lager_file_backend: [file: 'log/wok_console.log', level: :info, formatter: lager_json_formatter]
+    lager_file_backend: [file: 'log/wok_error.log', level: :error, formatter: :lager_json_formatter],
+    lager_file_backend: [file: 'log/wok_debug.log', level: :debug, formatter: :lager_json_formatter],
+    lager_file_backend: [file: 'log/wok_console.log', level: :info, formatter: :lager_json_formatter]
   ]
 ```
 

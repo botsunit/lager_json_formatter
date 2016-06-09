@@ -21,7 +21,7 @@ defmodule Lager.Json.Formatter.Mixfile do
 
   defp deps do
     [
-      {:lager, "~> 3.2"}    
+      {:lager, git: "https://github.com/basho/lager.git", tag: "3.2.0"}    
     ]
   end
 end

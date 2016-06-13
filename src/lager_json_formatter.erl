@@ -1,6 +1,9 @@
 -module(lager_json_formatter).
 
 -include_lib("lager/include/lager.hrl").
+-ifdef(TEST).
+-include_lib("eunit/include/eunit.hrl").
+-endif.
 
 -export([format/2]).
 
@@ -13,10 +16,17 @@ format(Message, _Config) ->
                                "\"message\": \"", message, "\"}\n"]].
 
 output(message, Msg) -> 
-  re:replace(
-    re:replace(lager_msg:message(Msg),
-               "\\\\\"", "\\\"", [global, {return,list}]),
-    "\"", "\\\\\"", [global, {return,list}]);
+  lists:foldl(fun({Target, Replacement}, Acc) ->
+                  re:replace(Acc, Target, Replacement, [global, {return,list}])
+              end, lager_msg:message(Msg), [{"\\\\", "\\\\\\\\"},
+                                            {"\"", "\\\\\""},
+                                            {"\u", "\\\\\\\\u"},
+                                            {"\b", "\\\\\\\\b"},
+                                            {"\f", "\\\\\\\\f"},
+                                            {"\n", "\\\\\\\\n"},
+                                            {"\r", "\\\\\\\\r"},
+                                            {"\t", "\\\\\\\\t"}
+                                           ]);
 output(date, Msg) ->
   {D, _T} = lager_msg:datetime(Msg),
   D;
@@ -123,4 +133,20 @@ get_metadata(Key, Metadata, Default) ->
     {Key, Value} ->
       Value
   end.
+
+-ifdef(TEST).
+output_test() ->
+  meck:new(lager_msg, [passthrough]),
+  meck:expect(lager_msg, message, fun(M) -> M end),
+  ?assertEqual("\\\"hello\\\"", output(message, "\"hello\"")),
+  ?assertEqual("\\\"hel\\\\lo\\\"", output(message, "\"hel\\lo\"")),
+  ?assertEqual("\\\\\\\"hello\\\"", output(message, "\\\"hello\"")),
+  ?assertEqual("xx \\\\u1234 xx", output(message, "xx \u1234 xx")),
+  ?assertEqual("xx \\\\b xx", output(message, "xx \b xx")),
+  ?assertEqual("xx \\\\f xx", output(message, "xx \f xx")),
+  ?assertEqual("xx \\\\n xx", output(message, "xx \n xx")),
+  ?assertEqual("xx \\\\t xx", output(message, "xx \t xx")),
+  ?assertEqual("xx \\\\r xx", output(message, "xx \r xx")),
+  meck:unload(lager_msg).
+-endif.
 

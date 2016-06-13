@@ -7,6 +7,9 @@ elixir:
 	$(verbose) $(REBAR) elixir generate_mix
 	$(verbose) $(REBAR) elixir generate_lib
 
+tests:
+	$(verbose) $(REBAR) eunit
+
 dist: compile elixir
 
 distclean:

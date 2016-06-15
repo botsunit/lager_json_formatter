@@ -10,7 +10,7 @@ elixir:
 tests:
 	$(verbose) $(REBAR) eunit
 
-dist: compile elixir
+dist: compile elixir tests
 
 distclean:
 	$(verbose) rm -rf _build rebar.lock mix.lock test/eunit deps

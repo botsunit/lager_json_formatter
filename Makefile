@@ -13,5 +13,5 @@ tests:
 dist: compile elixir tests
 
 distclean:
-	$(verbose) rm -rf _build rebar.lock mix.lock test/eunit deps
+	$(verbose) rm -rf _build test/eunit deps
 

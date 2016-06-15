@@ -13,4 +13,12 @@
   ,{maintainers, ["Gregoire Lejeune"]}
   ,{licenses, ["BSD-3"]}
   ,{links, [{"Github", "https://github.com/botsunit/rebar3_elixir"}]}
+  ,{files, ["src/*"
+            , "Makefile"
+            , "mix.exs"
+            , "mix.lock"
+            , "README.md"
+            , "rebar.config"
+            , "rebar.lock"]}
+  ,{build_tools, ["rebar3", "mix", "make"]}
  ]}.

@@ -1,0 +1,17 @@
+_build
+.DS_Store
+deps
+ebin
+log
+*.beam
+*.mnesia
+*.txt*
+*.swp*
+erl_crash.dump
+.eunit
+ext
+.rebar
+.erlang.mk
+kafe.d
+test/eunit/
+docker-compose.yml

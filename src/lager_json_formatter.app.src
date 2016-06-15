@@ -1,12 +1,16 @@
 {application, lager_json_formatter,
  [
-  {description, "JSON formatter for Lager"},
-  {vsn, "0.0.2"},
-  {registered, []},
-  {modules, []},
-  {applications, [
+  {description, "JSON formatter for Lager"}
+  ,{vsn, "0.0.2"}
+  ,{registered, []}
+  ,{modules, []}
+  ,{applications, [
                   kernel,
                   stdlib
-                 ]},
-  {env, []}
+                 ]}
+  ,{env, []}
+
+  ,{maintainers, ["Gregoire Lejeune"]}
+  ,{licenses, ["BSD-3"]}
+  ,{links, [{"Github", "https://github.com/botsunit/rebar3_elixir"}]}
  ]}.

@@ -1,35 +1,7 @@
-REBAR = ./rebar3
-MIX = mix
+HAS_ELIXIR=1
 
-compile-erl:
-	@$(REBAR) compile
+include bu.mk
 
-compile-ex: elixir
-	@$(MIX) deps.get
-	@$(MIX) compile
-
-elixir:
-	@$(REBAR) elixir generate_mix
-	@$(REBAR) elixir generate_lib
-
-tests:
-	@$(REBAR) eunit
-
-dist: release-ex release-erl
-
-release: release-ex release-erl
-	@$(REBAR) hex publish
-
-release-erl: distclean-erl compile-erl tests
-
-distclean-erl: distclean
-	@rm -f rebar.lock
-
-release-ex: distclean-ex compile-ex
-
-distclean-ex: distclean
-	@rm -f mix.lock
-
-distclean:
-	@rm -rf _build test/eunit deps
+release: dist
+	$(verbose) $(REBAR) hex publish
 

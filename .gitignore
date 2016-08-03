@@ -15,3 +15,5 @@ ext
 kafe.d
 test/eunit/
 docker-compose.yml
+/doc
+

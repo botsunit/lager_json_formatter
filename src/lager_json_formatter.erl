@@ -7,13 +7,13 @@
 
 -export([format/2]).
 
--define(DEFAULT_CONFIG, [{date, [date, " ", time]}, 
-                         message, 
-                         pid, 
-                         severity, 
+-define(DEFAULT_CONFIG, [{date, [date, " ", time]},
+                         message,
+                         pid,
+                         severity,
                          {component, [{module, "-"}, ":", {function, "-"}, "/", {line, "-"}]}]).
 
--spec format(lager_msg:lager_msg(),list()) -> any().
+-spec format(lager_msg:lager_msg(), list()) -> any().
 format(Message, []) ->
   format(Message, ?DEFAULT_CONFIG);
 format(Message, Config) ->
@@ -61,11 +61,11 @@ to_binary(O) -> list_to_binary(io_lib:format("~p", [O])).
 
 -ifdef(TEST).
 format_test() ->
-  Msg = lager_msg:new("hello", {1465, 900000, 0}, info, 
-                      [{pid, c:pid(0, 0, 0)}, 
-                       {module, ?MODULE}, 
+  Msg = lager_msg:new("hello", {1465, 900000, 0}, info,
+                      [{pid, c:pid(0, 0, 0)},
+                       {module, ?MODULE},
                        {function, test},
-                       {line, 123}], 
+                       {line, 123}],
                       []),
   ?assertEqual(<<"{\"component\":\"lager_json_formatter:test/123\","
                  "\"date\":\"2016-06-14 12:26:40.000\","
@@ -80,8 +80,8 @@ format_test() ->
                             {msg, message},
                             {sev, severity}])).
 special_chars_test() ->
-  Msg = lager_msg:new("hello\r\n\t\"wor\\d!", {1465, 900000, 0}, info, 
-                      [], 
+  Msg = lager_msg:new("hello\r\n\t\"wor\\d!", {1465, 900000, 0}, info,
+                      [],
                       []),
   ?assertEqual(<<"{\"component\":\"-:-/-\","
                  "\"date\":\"2016-06-14 12:26:40.000\","

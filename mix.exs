@@ -23,7 +23,7 @@ defmodule Lager.Json.Formatter.Mixfile do
   defp deps do
     [
       {:lager, "~> 3.2"},
-      {:jsone, "~> 1.2.6"}
+      {:jsx, "~> 2.6.0"}    
     ]
   end
 
@@ -51,5 +51,5 @@ defmodule Lager.Json.Formatter.Mixfile do
       (cmd) ->
         Mix.Shell.cmd cmd, [], fn(x) -> Mix.Shell.IO.info(String.strip(x)) end
       end).(command)
-  end
+  end    
 end

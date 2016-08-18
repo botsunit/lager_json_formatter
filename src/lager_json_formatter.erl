@@ -20,7 +20,7 @@ format(Message, Config) ->
   Map = lists:foldl(fun(Data, Map) ->
                         output(Data, Map, Message)
                     end, #{}, Config),
-  << (jsone:encode(Map))/binary, "\n" >>.
+  << (jsx:encode(Map))/binary, "\n" >>.
 
 output(Data, Map, Message) when is_atom(Data) ->
   maps:put(Data, get_data(Data, Message), Map);

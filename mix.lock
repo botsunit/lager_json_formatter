@@ -1,3 +1,3 @@
 %{"goldrush": {:hex, :goldrush, "0.1.8", "2024ba375ceea47e27ea70e14d2c483b2d8610101b4e852ef7f89163cdb6e649", [:rebar3], []},
-  "jsx": {:hex, :jsx, "2.6.2", "213721e058da0587a4bce3cc8a00ff6684ced229c8f9223245c6ff2c88fbaa5a", [:mix, :rebar], []},
+  "jsx": {:hex, :jsx, "2.8.0", "749bec6d205c694ae1786d62cea6cc45a390437e24835fd16d12d74f07097727", [:mix, :rebar], []},
   "lager": {:hex, :lager, "3.2.1", "eef4e18b39e4195d37606d9088ea05bf1b745986cf8ec84f01d332456fe88d17", [:rebar3], [{:goldrush, "0.1.8", [hex: :goldrush, optional: false]}]}}

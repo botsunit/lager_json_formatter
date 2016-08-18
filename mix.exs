@@ -23,7 +23,7 @@ defmodule Lager.Json.Formatter.Mixfile do
   defp deps do
     [
       {:lager, "~> 3.2"},
-      {:jsx, "~> 2.6.0"}    
+      {:jsx, "~> 2.6"}    
     ]
   end
 

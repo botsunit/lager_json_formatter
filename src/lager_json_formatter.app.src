@@ -15,7 +15,6 @@
   ,{links, [{"Github", "https://github.com/botsunit/lager_json_formatter"}]}
   ,{files, ["src/*"
             , "Makefile"
-            , "bu.mk"
             , "mix.exs"
             , "mix.lock"
             , "README.md"

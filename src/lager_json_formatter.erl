@@ -67,7 +67,7 @@ format_test() ->
                        {function, test},
                        {line, 123}],
                       []),
-  ?assertEqual(<<"{\"component\":\"lager_json_formatter:test\\/123\","
+  ?assertEqual(<<"{\"component\":\"lager_json_formatter:test/123\","
                  "\"date\":\"2016-06-14 12:26:40.000\","
                  "\"message\":\"hello\","
                  "\"pid\":\"<0.0.0>\","
@@ -83,7 +83,7 @@ special_chars_test() ->
   Msg = lager_msg:new("hello\r\n\t\"wor\\d!", {1465, 900000, 0}, info,
                       [],
                       []),
-  ?assertEqual(<<"{\"component\":\"-:-\\/-\","
+  ?assertEqual(<<"{\"component\":\"-:-/-\","
                  "\"date\":\"2016-06-14 12:26:40.000\","
                  "\"message\":\"hello\\r\\n\\t\\\"wor\\\\d!\","
                  "\"pid\":\"Undefined\","

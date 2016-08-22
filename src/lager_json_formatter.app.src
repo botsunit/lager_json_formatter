@@ -1,7 +1,7 @@
 {application, lager_json_formatter,
  [
   {description, "JSON formatter for Lager"}
-  ,{vsn, "0.0.5"}
+  ,{vsn, "0.1.0"}
   ,{registered, []}
   ,{modules, []}
   ,{applications, [
@@ -15,6 +15,7 @@
   ,{links, [{"Github", "https://github.com/botsunit/lager_json_formatter"}]}
   ,{files, ["src/*"
             , "Makefile"
+            , "bu.mk"
             , "mix.exs"
             , "mix.lock"
             , "README.md"

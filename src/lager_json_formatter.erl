@@ -55,6 +55,7 @@ get_data(Metadata, Message) when is_atom(Metadata) ->
 
 to_binary(A) when is_atom(A) -> atom_to_binary(A, latin1);
 to_binary(P) when is_pid(P) -> list_to_binary(pid_to_list(P));
+to_binary([L]) when is_list(L) -> iolist_to_binary(L);
 to_binary(L) when is_list(L) -> iolist_to_binary(L);
 to_binary(B) when is_binary(B) -> B;
 to_binary(O) -> list_to_binary(io_lib:format("~p", [O])).

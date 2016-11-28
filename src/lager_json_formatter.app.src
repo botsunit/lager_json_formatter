@@ -1,7 +1,7 @@
 {application, lager_json_formatter,
  [
   {description, "JSON formatter for Lager"}
-  ,{vsn, "0.1.2"}
+  ,{vsn, "0.2.0"}
   ,{registered, []}
   ,{modules, []}
   ,{applications, [

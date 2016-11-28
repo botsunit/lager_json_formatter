@@ -4,7 +4,7 @@ defmodule Lager.Json.Formatter.Mixfile do
   def project do
     [
       app: :lager_json_formatter,
-      version: "0.1.2",
+      version: "0.2.0",
       elixir: "~> 1.2",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
@@ -28,15 +28,21 @@ defmodule Lager.Json.Formatter.Mixfile do
   end
 
   defp aliases do
-    [compile: [&pre_compile_hooks/1, "compile", &post_compile_hooks/1]]
+    [compile: &compile_with_hooks/1]
   end
 
-  defp pre_compile_hooks(_) do
+  defp compile_with_hooks(args) do
+    pre_compile_hooks()
+    :ok = Mix.Task.run("compile", args)
+    post_compile_hooks()
+  end
+
+  defp pre_compile_hooks() do
     run_hook_cmd [
     ]
   end
 
-  defp post_compile_hooks(_) do
+  defp post_compile_hooks() do
     run_hook_cmd [
     ]
   end

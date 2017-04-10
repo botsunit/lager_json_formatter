@@ -1,5 +1,7 @@
 ## Lager JSON Formatter
 
+[![Hex.pm](https://img.shields.io/hexpm/v/lager_json_formatter.svg)](https://hex.pm/packages/lager_json_formatter)
+
 ### Erlang 
 
 sys.config :

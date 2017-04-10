@@ -24,7 +24,7 @@ rebar.config :
 ```
 
 ```erlang
-{lager_default_formatter, {git, "git@gitlab.botsunit.com:msaas/lager_json_formatter.git", {branch, "master"}}}
+{lager_default_formatter, {git, "https://github.com/G-Corp/lager_json_formatter.git", {tag, "0.2.3"}}}
 ```
 
 erlang.mk :
@@ -62,7 +62,7 @@ mix.exs :
 or
 
 ```elixir
-{:lager_json_formatter, git: "git@gitlab.botsunit.com:msaas/lager_json_formatter.git", branch: "master"},
+{:lager_json_formatter, git: "https://github.com/G-Corp/lager_json_formatter.git", branch: "master"},
 ```
 
 ### Formatter

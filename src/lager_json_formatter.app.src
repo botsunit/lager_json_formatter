@@ -12,7 +12,7 @@
 
   ,{maintainers, ["Gregoire Lejeune"]}
   ,{licenses, ["BSD-3"]}
-  ,{links, [{"Github", "https://github.com/botsunit/lager_json_formatter"}]}
+  ,{links, [{"Github", "https://github.com/G-Corp/lager_json_formatter"}]}
   ,{files, ["src/*"
             , "Makefile"
             , "bu.mk"

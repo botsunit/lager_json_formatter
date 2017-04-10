@@ -20,7 +20,23 @@ sys.config :
 rebar.config :
 
 ```erlang
+{lager_json_formatter, "0.2.3"}
+```
+
+```erlang
 {lager_default_formatter, {git, "git@gitlab.botsunit.com:msaas/lager_json_formatter.git", {branch, "master"}}}
+```
+
+erlang.mk :
+
+```Makefile
+dep_lager_json_formatter = hex 0.2.3
+```
+
+ok
+
+```Makefile
+dep_lager_json_formatter = git https://github.com/G-Corp/lager_json_formatter 0.2.3
 ```
 
 ### Elixir
@@ -38,6 +54,12 @@ config :lager,
 ```
 
 mix.exs :
+
+```elixir
+{:lager_json_formatter, "~> 0.2.3"}
+```
+
+or
 
 ```elixir
 {:lager_json_formatter, git: "git@gitlab.botsunit.com:msaas/lager_json_formatter.git", branch: "master"},

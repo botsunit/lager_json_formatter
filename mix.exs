@@ -4,7 +4,7 @@ defmodule Lager.Json.Formatter.Mixfile do
   def project do
     [
       app: :lager_json_formatter,
-      version: "0.2.3",
+      version: "0.2.4",
       elixir: "~> 1.2",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,

@@ -5,13 +5,16 @@
 -include_lib("eunit/include/eunit.hrl").
 -endif.
 
--export([format/2]).
+-export([format/2, format/3]).
 
 -define(DEFAULT_CONFIG, [{date, [date, " ", time]},
                          message,
                          pid,
                          severity,
                          {component, [{module, "-"}, ":", {function, "-"}, "/", {line, "-"}]}]).
+
+-spec format(lager_msg:lager_msg(), list(), list()) -> any().
+format(Message, Config, _Colors) -> format(Message, Config).
 
 -spec format(lager_msg:lager_msg(), list()) -> any().
 format(Message, []) ->

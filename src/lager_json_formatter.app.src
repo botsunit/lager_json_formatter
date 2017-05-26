@@ -1,7 +1,7 @@
 {application, lager_json_formatter,
  [
   {description, "JSON formatter for Lager"}
-  ,{vsn, "0.2.4"}
+  ,{vsn, "0.2.5"}
   ,{registered, []}
   ,{modules, []}
   ,{applications, [
@@ -12,7 +12,7 @@
 
   ,{maintainers, ["Gregoire Lejeune"]}
   ,{licenses, ["BSD-3"]}
-  ,{links, [{"Github", "https://github.com/botsunit/lager_json_formatter"}]}
+  ,{links, [{"Github", "https://github.com/G-Corp/lager_json_formatter"}]}
   ,{files, ["src/*"
             , "Makefile"
             , "bu.mk"
